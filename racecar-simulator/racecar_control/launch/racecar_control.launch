@@ -25,4 +25,7 @@
   <!-- Allow for Gazebo to broadcast odom -->
   <node pkg="racecar_gazebo" name="gazebo_odometry_node" type="gazebo_odometry.py"/>
 
+   <!-- Publishes odom->base_link tf -->
+  <node pkg="racecar_gazebo" name="odom_tf" type="odom_tf"/>
+
 </launch>
