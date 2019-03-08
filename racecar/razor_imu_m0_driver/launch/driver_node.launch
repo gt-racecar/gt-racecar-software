@@ -13,7 +13,7 @@
 
   <!-- launch-configured driver parameters -->
   <arg name="set_logger_level_debug" default="false" />
-  <arg name="port" default="/dev/imu0" />
+  <arg name="port" default="/dev/imu" />
 
   <!-- Optionally provide a path to specify additional parameters in a rosparam yaml file,
        which will be loaded into nodes' private namespace  -->
