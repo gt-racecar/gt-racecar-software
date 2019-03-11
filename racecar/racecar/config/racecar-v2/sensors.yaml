@@ -3,4 +3,4 @@ laser_node:
   ip_address: 192.168.0.10
 
 imu_node:
-  device: /dev/imu
+  device: /dev/ttyACM1

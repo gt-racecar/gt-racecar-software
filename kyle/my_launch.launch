@@ -1,0 +1,44 @@
+<launch>
+
+
+
+   <!--node pkg="gmapping" type="slam_gmapping" name="slam_gmapping"/-->
+
+  <!--node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+    <param name="output_frame" value="odom"/>
+    <param name="freq" value="30.0"/>
+    <param name="sensor_timeout" value="1.0"/>
+    <param name="odom_used" value="true"/>
+    <param name="imu_used" value="true"/>
+    <param name="vo_used" value="true"/>
+    <param name="debug" value="false"/>
+    <param name="self_diagnose" value="false"/>
+  </node-->
+
+  <!--node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization"> 
+    <rosparam command="load" file="./params/robot_localization.yaml" />
+  </node-->
+
+
+ <!--node pkg="amcl" type="amcl" name="amcl" respawn="true" output="screen" /--> 
+
+ 
+
+ <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+
+  <rosparam file="./params/costmap_common_params.yaml" command="load" ns="global_costmap" />
+  <rosparam file="./params/costmap_common_params.yaml" command="load" ns="local_costmap" />
+
+  <rosparam file="./params/map_nav_params/global_costmap_params.yaml" command="load" />
+  <rosparam file="./params/map_nav_params/local_costmap_params.yaml" command="load" />
+
+  <rosparam file="./params/base_local_planner_params.yaml" command="load" />
+  <rosparam file="./params/move_base_params.yaml" command="load" />
+
+  <param name="base_global_planner" type="string" value="navfn/NavfnROS" />
+  <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
+
+  <!--remap from="odom" to="odometry/filtered" /-->
+ </node>
+
+</launch>
