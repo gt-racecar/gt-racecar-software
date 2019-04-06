@@ -1,7 +1,7 @@
 <launch>
 
   <!-- known map server -->
-  <arg name="map"            default="$(find racecar)/maps/short-course-33.yml" />
+  <arg name="map"            default="$(find racecar)/maps/lab_room.yaml" />
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map)" />
 
   <!-- amcl -->

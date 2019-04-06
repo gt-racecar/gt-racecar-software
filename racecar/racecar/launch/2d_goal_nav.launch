@@ -1,0 +1,8 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+	<include file="$(find racecar)/launch/teleop.launch"> </include>
+	<include file="$(find racecar)/launch/known_map_localization.launch"> </include>
+	<include file="$(find racecar)/launch/teb_launch.launch"> </include>
+	<node pkg="racecar" name="geo_acker_node" type="geo_acker.py"/>
+	<node type="rviz" name="rviz" pkg="rviz" args="~/.rviz/default.rviz" />
+</launch>

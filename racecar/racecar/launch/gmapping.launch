@@ -1,0 +1,5 @@
+<launch>
+   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
+    <remap from="odom" to="/vesc/odom"/>
+   </node>
+</launch>
